@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--sql映射文件-->
+<mapper namespace="com.ca_bpy.dao.IStudentDao">
+    <!--select 查询操作-->
+    <!--selectParam 使用@Param进行多个参数查询操作-->
+    <select id="selectStudentsParam" resultType="com.ca_bpy.domain.Student">
+        select id,name,email,age from student where name=#{studentName}
+        or age=#{studentAge}
+    </select>
+    <!--selectObject 使用对象进行多个参数查询操作-->
+    <select id="selectStudentsObject" resultType="com.ca_bpy.domain.Student">
+        select * from student where name=#{name} or age=#{age}
+    </select>
+
+    <!--insert 插入操作-->
+    <insert id="insertStudents">
+        insert into student values(#{id},#{name},#{email},#{age})
+    </insert>
+    <!--update 更新操作-->
+    <update id="updateStudents">
+        update student set age=#{age} where id=#{id}
+    </update>
+    <!--delete 删除操作-->
+    <delete id="deleteStudents">
+        delete from student where id=#{id}
+    </delete>
+
+</mapper>

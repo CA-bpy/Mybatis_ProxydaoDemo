@@ -1,0 +1,3 @@
+com\ca_bpy\utils\MybatisUtils.class
+com\ca_bpy\domain\Student.class
+com\ca_bpy\dao\IStudentDao.class
